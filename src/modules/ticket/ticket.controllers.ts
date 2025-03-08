@@ -25,6 +25,7 @@ export class TicketController {
     return this.ticketService.createTicket(createTicketDto);
   }
 
+  @Get()
   async getTickets(
     @Query('status') status?: TicketStatus,
     @Query('priority') priority?: TicketPriority

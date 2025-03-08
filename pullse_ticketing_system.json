@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "d173c77b-02b6-4887-8d6a-5d81395b693a",
+		"name": "Pullse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30939943",
+		"_collection_link": "https://rydwayz.postman.co/workspace/My-Workspace~b1e5cba5-0c4c-4e70-8a92-19cfa7b46947/collection/30939943-d173c77b-02b6-4887-8d6a-5d81395b693a?action=share&source=collection_link&creator=30939943"
+	},
+	"item": [
+		{
+			"name": "Fetch Tickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/tickets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Tickets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "293"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"125-1PgnZbgI9XUFB6ips04MFJYNGa8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:22:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Tickets has been fetched.\",\n    \"data\": {\n        \"records\": [\n            {\n                \"id\": \"abfdc254-3924-44cd-8c91-0258c1efc9fd\",\n                \"title\": \"Test\",\n                \"description\": \"Test Data\",\n                \"status\": \"open\",\n                \"priority\": \"low\",\n                \"assigned_to\": null,\n                \"created_at\": \"2025-03-07T23:49:22.388Z\",\n                \"updated_at\": \"2025-03-07T23:49:22.388Z\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets",
+						"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Ticket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "280"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"118-5DNO65GRgFyo130AUgRv7skvknI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:24:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Ticket has been fetched.\",\n    \"data\": {\n        \"id\": \"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b\",\n        \"title\": \"Trial\",\n        \"description\": \"Trial Data\",\n        \"status\": \"open\",\n        \"priority\": \"low\",\n        \"assigned_to\": null,\n        \"created_at\": \"2025-03-07T23:53:05.334Z\",\n        \"updated_at\": \"2025-03-07T23:53:05.334Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Ticket",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"open\",\n    \"priority\": \"medium\",\n    \"assigned_to\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tickets/abfdc254-3924-44cd-8c91-0258c1efc9fd",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets",
+						"abfdc254-3924-44cd-8c91-0258c1efc9fd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Ticket",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "280"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"118-5DNO65GRgFyo130AUgRv7skvknI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:24:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Ticket has been fetched.\",\n    \"data\": {\n        \"id\": \"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b\",\n        \"title\": \"Trial\",\n        \"description\": \"Trial Data\",\n        \"status\": \"open\",\n        \"priority\": \"low\",\n        \"assigned_to\": null,\n        \"created_at\": \"2025-03-07T23:53:05.334Z\",\n        \"updated_at\": \"2025-03-07T23:53:05.334Z\"\n    }\n}"
+				},
+				{
+					"name": "Update Ticket",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"open\",\n    \"priority\": \"low\",\n    \"assigned_to\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-82SGPW0Y5boOElGCgN/6nMNbs0c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:29:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Ticket not found\",\n    \"data\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Ticket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets",
+						"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Ticket",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/tickets/08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e-YDodh/VAmz/nj/wJBYOyKuQANdQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:26:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Ticket has been deleted.\",\n    \"data\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Trial\",\n    \"description\": \"Trial Data\",\n    \"status\": \"open\",\n    \"priority\": \"low\",\n    \"assigned_to\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/tickets",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tickets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Ticket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Trial\",\n    \"description\": \"Trial Data\",\n    \"status\": \"open\",\n    \"priority\": \"low\",\n    \"assigned_to\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "280"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"118-X2d7mZFfOQ1/P2D8UMNYjfsXDts\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:23:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Ticket has been created.\",\n    \"data\": {\n        \"id\": \"08d3a8c8-d162-4a97-bb70-50c8bd8f6b0b\",\n        \"title\": \"Trial\",\n        \"description\": \"Trial Data\",\n        \"status\": \"open\",\n        \"priority\": \"low\",\n        \"assigned_to\": null,\n        \"created_at\": \"2025-03-07T23:53:05.334Z\",\n        \"updated_at\": \"2025-03-07T23:53:05.334Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Agents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/agents",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"agents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fetch Agents",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/agents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"agents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-jRNyG62rlXS4rwY1WMdggXHQ0Is\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:57:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Agents has been fetched.\",\n    \"data\": [\n        {\n            \"id\": \"8258e71a-eb2b-439c-a83f-9dcc4677306e\",\n            \"name\": \"John Doe\",\n            \"email\": \"john.doe@gmail.com\",\n            \"created_at\": \"2025-03-08T00:27:10.895Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/agents",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"agents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Agent",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/agents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"agents"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "191"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bf-Jsvr/kM/MHGtkMxkRLMsBTIHjks\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 05:57:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Agent has been created.\",\n    \"data\": {\n        \"id\": \"8258e71a-eb2b-439c-a83f-9dcc4677306e\",\n        \"name\": \"John Doe\",\n        \"email\": \"john.doe@gmail.com\",\n        \"created_at\": \"2025-03-08T00:27:10.895Z\"\n    }\n}"
+				}
+			]
+		}
+	]
+}

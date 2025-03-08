@@ -3,7 +3,10 @@ import { sql } from '../../database';
 import { CreateTicketDto, UpdateTicketDto } from '../../modules/ticket/ticket.dto';
 import Ably from 'ably';
 
-const ably = new Ably.Realtime(process.env.ABLY_API_KEY || '');
+const ably = new Ably.Realtime({
+  key: process.env.ABLY_API_KEY || '',
+  logLevel: 2
+});
 
 export enum TicketStatus {
   OPEN = 'open',
@@ -39,7 +42,17 @@ export class TicketService {
       RETURNING *;
     `;
 
-    return result[0];
+    const channel = ably.channels.get('tickets-updates');
+    channel.publish('ticket_created', {
+      ticketId:  result[0].id,
+      status:  result[0].status
+    });
+
+    return {
+      status: true,
+      message: 'Ticket has been created.',
+      data: result[0]
+    }
   }
 
   async getTickets(status?: TicketStatus, priority?: TicketPriority) {
@@ -60,12 +73,24 @@ export class TicketService {
     }
 
     const tickets = await query;
-    return tickets;
+
+    return {
+      status: true,
+      message: 'Tickets has been fetched.',
+      data: {
+        records: tickets
+      }
+    }
   }
 
   async getTicket(id: string) {
     const result = await sql`SELECT * FROM tickets WHERE id = ${id};`;
-    return result[0] || null;
+
+    return {
+      status: true,
+      message: 'Ticket has been fetched.',
+      data: result[0] || null
+    }
   }
 
   async updateTicket(id: string, updateTicketDto: UpdateTicketDto) {
@@ -77,7 +102,11 @@ export class TicketService {
 
     const existingTicket = await sql`SELECT status FROM tickets WHERE id = ${id}`;
     if (!existingTicket.length) {
-      throw new Error('Ticket not found');
+      return {
+        status: false,
+        message: 'Ticket not found',
+        data: {}
+      }
     }
 
     const result = await sql`
@@ -95,21 +124,34 @@ export class TicketService {
       const updatedTicket = result[0];
       if (safeStatus && safeStatus !== existingTicket[0].status) {
           const channel = ably.channels.get('tickets-updates');
-          channel.publish('ticket-updated', {
+          channel.publish('ticket_updated', {
             ticketId: id,
             status: safeStatus
           });
         }
-      return updatedTicket;
-    }
-    return null;
-    }
 
+      return {
+        status: true,
+        message: 'Ticket has been updated.',
+        data: updatedTicket
+      }
+    }
+    
+    return {
+      status: false,
+      message: 'Ticket has not been updated.',
+      data: {}
+    };
+  }
   
-
   async deleteTicket(id: string) {
     await sql`DELETE FROM tickets WHERE id = ${id};`;
-    return { message: 'Ticket deleted successfully' };
+
+    return {
+      status: true,
+      message: 'Ticket has been deleted.',
+      data: {}
+    }
   }
 }
 

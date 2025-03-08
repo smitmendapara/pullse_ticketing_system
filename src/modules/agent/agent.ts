@@ -9,4 +9,4 @@ import { AgentService } from './agent.services';
     providers: [AgentService]
 })
 
-export class TicketModule {}
+export class AgentModule {}

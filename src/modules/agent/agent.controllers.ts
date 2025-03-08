@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { AgentService } from '../../modules/agent//agent.services';
 import { CreateAgentDto, UpdateAgentDto } from '../../modules/agent/agent.dto';
 
-@Controller('agents')
+@Controller('api/agents')
 export class AgentController {
   constructor(private readonly agentService: AgentService) {}
 
@@ -14,10 +14,5 @@ export class AgentController {
   @Get()
   getAgents() {
     return this.agentService.getAgents();
-  }
-
-  @Get(':id')
-  getAgent(@Param('id') id: string) {
-    return this.agentService.getAgent(id);
   }
 }

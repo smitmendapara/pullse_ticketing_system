@@ -13,16 +13,20 @@ export class AgentService {
         RETURNING *;
         `;
 
-        return result.length > 0 ? result[0] : null;
+        return {
+            status: true,
+            message: 'Agent has been created.',
+            data: result[0] || null
+        }
     }
 
     async getAgents() {
         const result = await sql`SELECT * FROM agents;`;
-        return result;
-    }
 
-    async getAgent(id: string) {
-        const result = await sql`SELECT * FROM agents WHERE id = ${id};`;
-        return result.length > 0 ? result[0] : null;
+        return {
+            status: true,
+            message: 'Agents has been fetched.',
+            data: result
+        }
     }
 }
