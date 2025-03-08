@@ -38,6 +38,15 @@ Ensure you have the following installed:
    ```
 
 ---
+
+## Running the Ably Subscription
+To listen for real-time updates on ticket creation or updates, run:
+```sh
+node src/subscribe.js
+```
+This script subscribes to the `tickets-updates` channel and listens for events.
+
+---
 ## API Documentation
 
 ### Ticket APIs
