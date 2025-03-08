@@ -10,6 +10,7 @@ This project is a Ticket Management System built with NestJS and Supabase(Postgr
 ### Prerequisites
 Ensure you have the following installed:
 - Node.js (18.20.3)
+- API Base URL (https://pullse-ticketing-system.onrender.com)
 
 ### Installation
 1. Clone the repository:
