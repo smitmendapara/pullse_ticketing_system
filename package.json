@@ -12,7 +12,7 @@
     "build": "tsc",
     "dev": "nodemon --exec ts-node src/main.ts",
     "clean": "rm -rf dist/",
-    "prod": "npm run clean && tsc && node dist/PTserver.js",
+    "prod": "npm run clean && tsc && node dist/main.js",
     "setup-dev-modules": "npm i typescript ts-node @types/node --save-dev",
     "setup-core-modules": "npm i winston express @types/express cors @types/cors jsonwebtoken @types/jsonwebtoken dotenv @types/dotenv",
     "setup-project": "npm run setup-dev-modules && npm run setup-core-modules"
